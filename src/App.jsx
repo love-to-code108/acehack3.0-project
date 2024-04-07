@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Terminal } from "lucide-react"
+import { Link, Terminal } from "lucide-react"
 
 
 
@@ -24,6 +24,8 @@ import theEarth from "./assets/JPG/earthLightFromSpace.jpg"
 
 // CSS IMPORTS
 import "./app.css"
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function App() {
 
@@ -59,6 +61,63 @@ function App() {
 
 function MainApp() {
 
+  const arr = [1, 2, 3]
+
+
+
+
+  // const [data, setData] = useState(null);
+  const [lampNo, setLampNo] = useState(0);
+  const [lampStatus, setlampStatus] = useState(0);
+
+  const lampPostCheckingStuff = (data) => {
+    console.log(data);
+
+    setLampNo(data.lampNo)
+    const lampNo = data.lampNo;
+    setlampStatus(data.value);
+
+    // if (lampNo == 1) {
+    // }
+
+  }
+
+
+
+
+
+  setInterval(() => {
+    axios.get('http://192.168.246.122:8080/data')
+      .then(response => {
+
+        lampPostCheckingStuff(response.data);
+        // console.log(response.data);
+        // console.log("This shit is working");
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+
+      });
+  }, 10000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   return (
     <div className=" text-white flex flex-col font-inter">
@@ -73,14 +132,18 @@ function MainApp() {
 
         {/* THE SIGN IN BUTTON */}
         <div>
+
           <Button className=" rounded-none font-inter text-xl bg-black w-[8rem] h-[3rem]">Sign In</Button>
+
         </div>
 
 
 
         {/* THE SIGN UP BUTTON */}
         <div>
+
           <Button className=" bg-white text-black hover:bg-white hover:text-black text-xl font-inter w-[8rem] h-[3rem] rounded-none">Sign In</Button>
+
         </div>
       </div>
 
@@ -169,9 +232,9 @@ function MainApp() {
                 <SelectValue className=" placeholder:text-slate-400" placeholder=" Select your location " />
               </SelectTrigger>
               <SelectContent className=" font-inter ">
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
+                <SelectItem value="light">Jaipur</SelectItem>
+                <SelectItem value="dark">Jodhpur</SelectItem>
+                <SelectItem value="system">Chomu</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -190,26 +253,39 @@ function MainApp() {
           {/* COLUMN FOR WORKING STREET LIGHTS */}
           <div className=" flex flex-col items-center">
             <h1 className=" font-34 mb-10">Working Street Lights</h1>
-            <Alert>
-              <Terminal className="h-4 w-4" />
-              <AlertTitle>Heads up!</AlertTitle>
-              <AlertDescription>
-                You can add components and dependencies to your app using the cli.
-              </AlertDescription>
-            </Alert>
+
+            {arr.map((value, index) => {
+
+
+              return (<Alert key={index} className=" font-21 mb-3">
+
+                <AlertTitle>Lamp Post Number : {lampNo}</AlertTitle>
+                <AlertDescription>
+                  Current Status : {lampStatus}
+                </AlertDescription>
+              </Alert>);
+            })}
+
 
           </div>
+
+
+
+
 
           {/* COLUMN FOR FAULTY STREET LIGHTS */}
           <div className=" flex flex-col items-center">
             <h1 className=" font-34 mb-10">Faulty Street Lights</h1>
-            <Alert>
-              <Terminal className="h-4 w-4" />
-              <AlertTitle>Heads up!</AlertTitle>
+
+
+            <Alert className=" font-21">
+
+              <AlertTitle>Lamp Post Number : {lampNo}</AlertTitle>
               <AlertDescription>
-                You can add components and dependencies to your app using the cli.
+                Current Status
               </AlertDescription>
             </Alert>
+
           </div>
         </div>
 
