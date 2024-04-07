@@ -1,6 +1,24 @@
+// CHAD CN UI IMPORTS
 import { Button } from "@/components/ui/button"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Terminal } from "lucide-react"
+
+
+
+
+
+
+// IMAGE IMPORTS
 import theEarth from "./assets/JPG/earthLightFromSpace.jpg"
 
+// CSS IMPORTS
 import "./app.css"
 
 function App() {
@@ -22,7 +40,7 @@ function MainApp() {
 
 
   return (
-    <div className=" text-white flex flex-col">
+    <div className=" text-white flex flex-col font-inter">
 
 
 
@@ -114,13 +132,32 @@ function MainApp() {
 
         {/* HEADING FOR STATUS OF STREET LIGHT NEAR YOU */}
         <div>
-
+          <h1>Status of Street light near you</h1>
         </div>
 
 
 
         {/* CHOOSE YOUR LOCATION */}
         <div>
+          <Select>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Theme" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="light">Light</SelectItem>
+              <SelectItem value="dark">Dark</SelectItem>
+              <SelectItem value="system">System</SelectItem>
+            </SelectContent>
+          </Select>
+
+        </div>
+
+
+
+        {/* HEADING FOR FAULTY STREET LIGHT AND WORKING ONES */}
+        <div>
+          <h1>Working Street Lights</h1>
+          <h1>Faulty Street Lights</h1>
 
         </div>
 
@@ -129,10 +166,32 @@ function MainApp() {
         {/* TABLE FOR WORKING STREET LIGHT AND FAULTY STREET LIGHT */}
         <div>
 
+          {/* COLUMN FOR WORKING STREET LIGHTS */}
+          <div>
+            <Alert>
+              <Terminal className="h-4 w-4" />
+              <AlertTitle>Heads up!</AlertTitle>
+              <AlertDescription>
+                You can add components and dependencies to your app using the cli.
+              </AlertDescription>
+            </Alert>
+
+          </div>
+
+          {/* COLUMN FOR FAULTY STREET LIGHTS */}
+          <div>
+            <Alert>
+              <Terminal className="h-4 w-4" />
+              <AlertTitle>Heads up!</AlertTitle>
+              <AlertDescription>
+                You can add components and dependencies to your app using the cli.
+              </AlertDescription>
+            </Alert>
+          </div>
         </div>
 
 
-        
+
 
 
 
