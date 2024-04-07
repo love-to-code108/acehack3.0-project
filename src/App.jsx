@@ -12,6 +12,10 @@ import { Terminal } from "lucide-react"
 
 
 
+// MI UI ICONS
+import EmailIcon from '@mui/icons-material/Email';
+
+
 
 
 
@@ -29,6 +33,23 @@ function App() {
     </div>
   )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -126,48 +147,49 @@ function MainApp() {
 
 
       {/* PART 3 */}
-      <div>
+      <div className=" flex flex-col items-center">
 
 
 
         {/* HEADING FOR STATUS OF STREET LIGHT NEAR YOU */}
-        <div>
+        <div className=" font-55 mb-12">
           <h1>Status of Street light near you</h1>
         </div>
 
 
 
         {/* CHOOSE YOUR LOCATION */}
-        <div>
-          <Select>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Theme" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="light">Light</SelectItem>
-              <SelectItem value="dark">Dark</SelectItem>
-              <SelectItem value="system">System</SelectItem>
-            </SelectContent>
-          </Select>
+        <div className="px-[6rem] flex justify-start w-[100%] mb-20">
+          <div className="">
 
+            <h1 className=" font-13 mb-4">Choose your location</h1>
+
+            <Select>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue className=" placeholder:text-slate-400" placeholder=" Select your location " />
+              </SelectTrigger>
+              <SelectContent className=" font-inter ">
+                <SelectItem value="light">Light</SelectItem>
+                <SelectItem value="dark">Dark</SelectItem>
+                <SelectItem value="system">System</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
+
+
+
 
 
 
         {/* HEADING FOR FAULTY STREET LIGHT AND WORKING ONES */}
-        <div>
-          <h1>Working Street Lights</h1>
-          <h1>Faulty Street Lights</h1>
-
-        </div>
-
-
 
         {/* TABLE FOR WORKING STREET LIGHT AND FAULTY STREET LIGHT */}
-        <div>
+        <div className=" flex w-[100%] justify-evenly mb-[8rem]">
 
           {/* COLUMN FOR WORKING STREET LIGHTS */}
-          <div>
+          <div className=" flex flex-col items-center">
+            <h1 className=" font-34 mb-10">Working Street Lights</h1>
             <Alert>
               <Terminal className="h-4 w-4" />
               <AlertTitle>Heads up!</AlertTitle>
@@ -179,7 +201,8 @@ function MainApp() {
           </div>
 
           {/* COLUMN FOR FAULTY STREET LIGHTS */}
-          <div>
+          <div className=" flex flex-col items-center">
+            <h1 className=" font-34 mb-10">Faulty Street Lights</h1>
             <Alert>
               <Terminal className="h-4 w-4" />
               <AlertTitle>Heads up!</AlertTitle>
@@ -198,10 +221,25 @@ function MainApp() {
 
 
 
-        {/* CONTACT  */}
+        {/* CONTACT  US SECTION */}
+        <div className=" w-[100%] font-inter ml-[12rem] mb-[12rem]">
+          <h1 className=" font-34 mb-3">Contact Us</h1>
+
+          <div className=" flex">
+            <div className=" mr-2">
+              <EmailIcon />
+            </div>
+            <p className=" font-13">tecxaro@gmail.com</p>
+          </div>
+        </div>
 
 
-      </div>
+
+
+
+
+
+      </div >
 
 
     </div>
