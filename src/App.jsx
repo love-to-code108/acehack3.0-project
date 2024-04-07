@@ -61,20 +61,46 @@ function App() {
 
 function MainApp() {
 
+  const arr = [1, 2, 3]
 
 
-  const [data, setData] = useState(null);
 
-  useEffect(() => {
+
+  // const [data, setData] = useState(null);
+  const [lampNo, setLampNo] = useState(0);
+  const [lampStatus, setlampStatus] = useState(0);
+
+  const lampPostCheckingStuff = (data) => {
+    console.log(data);
+
+    setLampNo(data.lampNo)
+    const lampNo = data.lampNo;
+
+    if (lampNo == 1) {
+      setlampStatus(data.value);
+    }
+
+  }
+
+
+
+
+
+  setInterval(() => {
     axios.get('http://192.168.246.122:8080/data')
       .then(response => {
-        setData(response.data);
-        console.log("This shit is working");
+
+        lampPostCheckingStuff(response.data);
+        // console.log(response.data);
+        // console.log("This shit is working");
       })
       .catch(error => {
         console.error('Error fetching data:', error);
+
       });
-  }, []);
+  }, 10000)
+
+
 
 
 
@@ -227,26 +253,39 @@ function MainApp() {
           {/* COLUMN FOR WORKING STREET LIGHTS */}
           <div className=" flex flex-col items-center">
             <h1 className=" font-34 mb-10">Working Street Lights</h1>
-            <Alert>
-              <Terminal className="h-4 w-4" />
-              <AlertTitle>Heads up!</AlertTitle>
-              <AlertDescription>
-                You can add components and dependencies to your app using the cli.
-              </AlertDescription>
-            </Alert>
+
+            {arr.map((value, index) => {
+
+
+              return (<Alert key={index} className=" font-21 mb-3">
+
+                <AlertTitle>Lamp Post Number : {lampNo}</AlertTitle>
+                <AlertDescription>
+                  Current Status : {lampStatus}
+                </AlertDescription>
+              </Alert>);
+            })}
+
 
           </div>
+
+
+
+
 
           {/* COLUMN FOR FAULTY STREET LIGHTS */}
           <div className=" flex flex-col items-center">
             <h1 className=" font-34 mb-10">Faulty Street Lights</h1>
-            <Alert>
-              <Terminal className="h-4 w-4" />
-              <AlertTitle>Heads up!</AlertTitle>
+
+
+            <Alert className=" font-21">
+
+              <AlertTitle>Lamp Post Number : {lampNo}</AlertTitle>
               <AlertDescription>
-                You can add components and dependencies to your app using the cli.
+                Current Status
               </AlertDescription>
             </Alert>
+
           </div>
         </div>
 
