@@ -88,7 +88,7 @@ function MainApp() {
 
 
 
-      {/* THE SECOND HEADING STREET LIGHT FAULT DETECTOR  */}
+        {/* THE SECOND HEADING STREET LIGHT FAULT DETECTOR  */}
         <div className=" w-[100%] font-55 font-inter flex justify-center mb-8">
           <h1>Street Light Fault Detector</h1>
         </div>
@@ -108,21 +108,41 @@ function MainApp() {
 
 
       {/* PART 3 */}
-
-      {/* HEADING FOR STATUS OF STREET LIGHT NEAR YOU */}
-
+      <div>
 
 
 
-      {/* CHOOSE YOUR LOCATION */}
+        {/* HEADING FOR STATUS OF STREET LIGHT NEAR YOU */}
+        <div>
+
+        </div>
+
+
+
+        {/* CHOOSE YOUR LOCATION */}
+        <div>
+
+        </div>
+
+
+
+        {/* TABLE FOR WORKING STREET LIGHT AND FAULTY STREET LIGHT */}
+        <div>
+
+        </div>
+
+
+        
 
 
 
 
-      {/* TABLE FOR WORKING STREET LIGHT AND FAULTY STREET LIGHT */}
 
 
+        {/* CONTACT  */}
 
+
+      </div>
 
 
     </div>
