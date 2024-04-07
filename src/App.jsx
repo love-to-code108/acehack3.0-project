@@ -75,10 +75,10 @@ function MainApp() {
 
     setLampNo(data.lampNo)
     const lampNo = data.lampNo;
+    setlampStatus(data.value);
 
-    if (lampNo == 1) {
-      setlampStatus(data.value);
-    }
+    // if (lampNo == 1) {
+    // }
 
   }
 
@@ -232,9 +232,9 @@ function MainApp() {
                 <SelectValue className=" placeholder:text-slate-400" placeholder=" Select your location " />
               </SelectTrigger>
               <SelectContent className=" font-inter ">
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
+                <SelectItem value="light">Jaipur</SelectItem>
+                <SelectItem value="dark">Jodhpur</SelectItem>
+                <SelectItem value="system">Chomu</SelectItem>
               </SelectContent>
             </Select>
           </div>
