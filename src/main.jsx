@@ -14,6 +14,7 @@ import { UserSignUp } from './pages/signUp.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <UserLogin/>
+    {/* <UserLogin/> */}
+    <UserSignUp/>
   </React.StrictMode>,
 )
