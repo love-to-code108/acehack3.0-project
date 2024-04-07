@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"
 
 export const UserSignUp = () => {
     return (
-        <div className=" w-[100%] h-[100vh] bg-black flex justify-center items-center">
+        <div className=" w-[100%] h-[100vh] bg-black flex justify-evenly items-center">
 
 
 
@@ -18,7 +18,7 @@ export const UserSignUp = () => {
             <div className=" font-inter flex flex-col items-start">
                 {/* THE SIGN IN HEADING */}
                 <div className=" mb-4">
-                    <h1 className=" text-white font-34">Sign In</h1>
+                    <h1 className=" text-white font-34">Sign Up</h1>
                 </div>
 
 
@@ -43,6 +43,52 @@ export const UserSignUp = () => {
                             placeholder="Password" />
                     </div>
 
+
+
+
+
+                    {/* THE CONFIRM PASSWORD SECTION */}
+                    <div className=" mb-6">
+                        <Input className=" rounded-none font-inter w-[21rem] "
+                            type="password"
+                            placeholder="Confirm Password" />
+                    </div>
+
+
+
+
+
+                    {/* THE NAME SECTION */}
+                    <div className=" mb-6">
+                        <Input className=" rounded-none font-inter w-[21rem] "
+                            type="text"
+                            placeholder="Name" />
+                    </div>
+
+
+
+
+                    {/* THE EMAIL SECTION */}
+                    <div className=" mb-6">
+                        <Input className=" rounded-none font-inter w-[21rem] "
+                            type="email"
+                            placeholder="Email" />
+                    </div>
+
+
+
+
+                    {/* THE PHONE NUMBER SECTION */}
+                    <div className=" mb-6">
+                        <Input className=" rounded-none font-inter w-[21rem] "
+                            type="number"
+                            placeholder="phone number" />
+                    </div>
+
+
+                    
+                    
+
                 </div>
 
 
@@ -66,7 +112,7 @@ export const UserSignUp = () => {
                     {/* THE SIGN UP BUTTON */}
                     <div>
                         <Button className=" bg-white text-black rounded-none font-inter
-                        h-[2rem] w-[6rem] hover:text-white hover:bg-black hover:border-2 hover:border-white ">Sign In</Button>
+                        h-[2rem] w-[6rem] hover:text-white hover:bg-black hover:border-2 hover:border-white ">Sign Up</Button>
                     </div>
 
                 </div>

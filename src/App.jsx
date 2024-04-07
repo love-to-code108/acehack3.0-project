@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Terminal } from "lucide-react"
+import { Link, Terminal } from "lucide-react"
 
 
 
@@ -24,6 +24,8 @@ import theEarth from "./assets/JPG/earthLightFromSpace.jpg"
 
 // CSS IMPORTS
 import "./app.css"
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function App() {
 
@@ -60,6 +62,37 @@ function App() {
 function MainApp() {
 
 
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    axios.get('http://192.168.246.122:8080/data')
+      .then(response => {
+        setData(response.data);
+        console.log("This shit is working");
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div className=" text-white flex flex-col font-inter">
 
@@ -73,14 +106,18 @@ function MainApp() {
 
         {/* THE SIGN IN BUTTON */}
         <div>
+
           <Button className=" rounded-none font-inter text-xl bg-black w-[8rem] h-[3rem]">Sign In</Button>
+
         </div>
 
 
 
         {/* THE SIGN UP BUTTON */}
         <div>
+
           <Button className=" bg-white text-black hover:bg-white hover:text-black text-xl font-inter w-[8rem] h-[3rem] rounded-none">Sign In</Button>
+
         </div>
       </div>
 

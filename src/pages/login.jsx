@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button"
 
 export const UserLogin = () => {
     return (
-        <div className=" w-[100%] h-[100vh] bg-black flex justify-center items-center">
+        <div className=" w-[100%] h-[100vh] bg-black flex justify-evenly items-center">
 
 
 
